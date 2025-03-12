@@ -1,0 +1,36 @@
+* {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.contactForm {
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+}
+.number {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  width: 350px;
+  height: 30px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.form button{
+    width: 150px;
+    font-size: 20px;
+}
+
+

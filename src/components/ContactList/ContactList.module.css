@@ -1,0 +1,11 @@
+.contactList{
+    margin-top: 50px;
+    display: flex;
+    list-style: none;
+}
+
+.contactList ul li {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
