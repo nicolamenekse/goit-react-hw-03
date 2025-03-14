@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ConctactList";
 import SearchBox from "./components/SearchBox/SearchBox";
+import {nanoid} from 'nanoid'
 import "./App.css";
 
 const App = () => {
@@ -14,23 +15,21 @@ const App = () => {
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    const savedContacts = JSON.parse(localStorage.getItem("contacts"));
-    if (savedContacts) {
-      setContacts(savedContacts);
+    if (!localStorage.getItem("contacts")) {
+      localStorage.setItem("contacts", JSON.stringify([]));
     }
-    console.log(contacts)
   }, []);
-
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
 
-  const addContact = (newContact) => {
+ 
+
+  const addContact = (newContact) =>{
     setContacts([
-      ...contacts,
-      { ...newContact, id: `id-${contacts.length + 1}` },
-    ]);
-  };
+      ...contacts, {...newContact, id:nanoid()}
+    ])
+  }
 
   const deleteContact = (id) => {
     setContacts(contacts.filter((contact) => contact.id !== id));
